@@ -13,6 +13,7 @@
 		D097F0B628749CB1001A0D58 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D097F0B528749CB1001A0D58 /* Preview Assets.xcassets */; };
 		D097F0BE28749FDA001A0D58 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D097F0BD28749FDA001A0D58 /* User.swift */; };
 		D097F0C02874A037001A0D58 /* Cylinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D097F0BF2874A037001A0D58 /* Cylinder.swift */; };
+		D097F0C32874A3A8001A0D58 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D097F0C22874A3A8001A0D58 /* LocationHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		D097F0B528749CB1001A0D58 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D097F0BD28749FDA001A0D58 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		D097F0BF2874A037001A0D58 /* Cylinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cylinder.swift; sourceTree = "<group>"; };
+		D097F0C22874A3A8001A0D58 /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 		D097F0AD28749CA8001A0D58 /* RefrigerantCylinderScanner */ = {
 			isa = PBXGroup;
 			children = (
+				D097F0C12874A378001A0D58 /* Helpers */,
 				D097F0BC28749EBE001A0D58 /* Models */,
 				D097F0AE28749CA8001A0D58 /* RefrigerantCylinderScannerApp.swift */,
 				D097F0B028749CA8001A0D58 /* ContentView.swift */,
@@ -79,6 +82,14 @@
 				D097F0BF2874A037001A0D58 /* Cylinder.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D097F0C12874A378001A0D58 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D097F0C22874A3A8001A0D58 /* LocationHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +166,7 @@
 				D097F0AF28749CA8001A0D58 /* RefrigerantCylinderScannerApp.swift in Sources */,
 				D097F0BE28749FDA001A0D58 /* User.swift in Sources */,
 				D097F0C02874A037001A0D58 /* Cylinder.swift in Sources */,
+				D097F0C32874A3A8001A0D58 /* LocationHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
