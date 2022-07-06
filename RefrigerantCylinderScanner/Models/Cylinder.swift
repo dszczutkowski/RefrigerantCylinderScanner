@@ -12,7 +12,7 @@ struct Cylinder: Identifiable {
     let id: UUID
     var date: Date
     let name: String
-    let location: CLLocationCoordinate2D
+    //let location: CLLocationCoordinate2D
     let maxCapacity: Double
     var contentRemaining: Double
     
@@ -23,9 +23,9 @@ struct Cylinder: Identifiable {
         self.maxCapacity = maxCapacity
         self.contentRemaining = contentRemaining > maxCapacity ? maxCapacity : contentRemaining
         
-        let locationHelper = LocationHelper()
-        locationHelper.requestLocation()
-        self.location = locationHelper.location ?? CLLocationCoordinate2D(latitude: 0, longitude: 0)
+//        let locationHelper = LocationHelper()
+//        locationHelper.requestLocation()
+//        self.location = locationHelper.location ?? CLLocationCoordinate2D(latitude: 0, longitude: 0)
     }
 }
 

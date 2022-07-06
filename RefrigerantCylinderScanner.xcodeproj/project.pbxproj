@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D05A428C2875F5F2008046E5 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = D05A428B2875F5F2008046E5 /* CodeScanner */; };
 		D097F0AF28749CA8001A0D58 /* RefrigerantCylinderScannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D097F0AE28749CA8001A0D58 /* RefrigerantCylinderScannerApp.swift */; };
 		D097F0B328749CB1001A0D58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D097F0B228749CB1001A0D58 /* Assets.xcassets */; };
 		D097F0B628749CB1001A0D58 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D097F0B528749CB1001A0D58 /* Preview Assets.xcassets */; };
@@ -32,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D05A428C2875F5F2008046E5 /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +118,9 @@
 			dependencies = (
 			);
 			name = RefrigerantCylinderScanner;
+			packageProductDependencies = (
+				D05A428B2875F5F2008046E5 /* CodeScanner */,
+			);
 			productName = RefrigerantCylinderScanner;
 			productReference = D097F0AB28749CA8001A0D58 /* RefrigerantCylinderScanner.app */;
 			productType = "com.apple.product-type.application";
@@ -144,6 +149,9 @@
 				Base,
 			);
 			mainGroup = D097F0A228749CA7001A0D58;
+			packageReferences = (
+				D05A428A2875F5F2008046E5 /* XCRemoteSwiftPackageReference "CodeScanner" */,
+			);
 			productRefGroup = D097F0AC28749CA8001A0D58 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -309,6 +317,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -338,6 +347,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -375,6 +385,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D05A428A2875F5F2008046E5 /* XCRemoteSwiftPackageReference "CodeScanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/twostraws/CodeScanner";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D05A428B2875F5F2008046E5 /* CodeScanner */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D05A428A2875F5F2008046E5 /* XCRemoteSwiftPackageReference "CodeScanner" */;
+			productName = CodeScanner;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D097F0A328749CA7001A0D58 /* Project object */;
 }
