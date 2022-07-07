@@ -23,7 +23,7 @@ struct CylinderDetailsView: View {
                         .interpolation(.none)
                         .scaledToFit()
                         .frame(width: 210, height: 210, alignment: .center)
-                    Spacer()
+                        .padding(8)
                     VStack {
                         Rectangle()
                             .frame(width: 48, height: 12, alignment: .top)
@@ -32,14 +32,15 @@ struct CylinderDetailsView: View {
                             .frame(width: 70, height: 188, alignment: .center)
                             .overlay {
                                 Rectangle()
-                                    .frame(width: 60, height: cylinder.contentRemaining/cylinder.maxCapacity*188, alignment: .bottom)
+                                    .frame(width: 56, height: cylinder.contentRemaining/cylinder.maxCapacity*170, alignment: .bottom)
                                     .foregroundColor(.cyan)
                                 Text("\(cylinder.percentLeft())")
                                     .foregroundColor(.black)
                             }
+                            .cornerRadius(15)
                     }
                 }
-                .padding(16)
+                .padding(12)
                 Form {
                     Text(cylinder.name)
                         .textContentType(.name)
@@ -70,7 +71,7 @@ struct CylinderDetailsView: View {
 struct CylinderDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CylinderDetailsView(cylinder: Cylinder.sampleData[2])
+            CylinderDetailsView(cylinder: Cylinder.sampleData[3])
         }
         .preferredColorScheme(.dark)
         .padding()
