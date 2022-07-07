@@ -16,7 +16,6 @@ struct CylinderDetailsView: View {
     let filter = CIFilter.qrCodeGenerator()
     
     var body: some View {
-        NavigationView {
             VStack {
                 HStack {
                     Image(uiImage: generateQrCode(from: "\(cylinder.name)"))
@@ -30,7 +29,7 @@ struct CylinderDetailsView: View {
                             Rectangle()
                                 .frame(width: 60, height: cylinder.contentRemaining/cylinder.maxCapacity*200, alignment: .bottom)
                                 .foregroundColor(.green)
-                            Text("\(Int(cylinder.contentRemaining/cylinder.maxCapacity*100))%")
+                            Text("\(cylinder.percentLeft())")
                         }
                 }
                 .padding(16)
@@ -44,10 +43,9 @@ struct CylinderDetailsView: View {
                     Text("\(NSString(format: "%.2f", cylinder.contentRemaining )) litres")
                     Text("\(Int(cylinder.maxCapacity)) litres")
                 }
-                .padding(8)
+                Spacer()
             }
-        }
-        .navigationTitle("\(cylinder.name) details")
+            .navigationTitle("\(cylinder.name) details")
     }
     
     func generateQrCode(from string: String) -> UIImage {
@@ -68,5 +66,6 @@ struct CylinderDetailsView_Previews: PreviewProvider {
             CylinderDetailsView(cylinder: Cylinder.sampleData[0])
         }
         .preferredColorScheme(.dark)
+        .padding()
     }
 }

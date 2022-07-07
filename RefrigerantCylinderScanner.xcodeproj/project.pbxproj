@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D05A428C2875F5F2008046E5 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = D05A428B2875F5F2008046E5 /* CodeScanner */; };
+		D0947F8128775A3700080F32 /* CylinderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0947F8028775A3700080F32 /* CylinderListView.swift */; };
+		D0947F8328775DED00080F32 /* CylinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0947F8228775DED00080F32 /* CylinderView.swift */; };
 		D097F0AF28749CA8001A0D58 /* RefrigerantCylinderScannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D097F0AE28749CA8001A0D58 /* RefrigerantCylinderScannerApp.swift */; };
 		D097F0B328749CB1001A0D58 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D097F0B228749CB1001A0D58 /* Assets.xcassets */; };
 		D097F0B628749CB1001A0D58 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D097F0B528749CB1001A0D58 /* Preview Assets.xcassets */; };
@@ -18,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D0947F8028775A3700080F32 /* CylinderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CylinderListView.swift; sourceTree = "<group>"; };
+		D0947F8228775DED00080F32 /* CylinderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CylinderView.swift; sourceTree = "<group>"; };
 		D097F0AB28749CA8001A0D58 /* RefrigerantCylinderScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RefrigerantCylinderScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D097F0AE28749CA8001A0D58 /* RefrigerantCylinderScannerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefrigerantCylinderScannerApp.swift; sourceTree = "<group>"; };
 		D097F0B228749CB1001A0D58 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,6 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				D097F0C52874D5DF001A0D58 /* CylinderDetailsView.swift */,
+				D0947F8028775A3700080F32 /* CylinderListView.swift */,
+				D0947F8228775DED00080F32 /* CylinderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -178,10 +184,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0947F8328775DED00080F32 /* CylinderView.swift in Sources */,
 				D097F0AF28749CA8001A0D58 /* RefrigerantCylinderScannerApp.swift in Sources */,
 				D097F0BE28749FDA001A0D58 /* User.swift in Sources */,
 				D097F0C02874A037001A0D58 /* Cylinder.swift in Sources */,
 				D097F0C32874A3A8001A0D58 /* LocationHelper.swift in Sources */,
+				D0947F8128775A3700080F32 /* CylinderListView.swift in Sources */,
 				D097F0C62874D5DF001A0D58 /* CylinderDetailsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

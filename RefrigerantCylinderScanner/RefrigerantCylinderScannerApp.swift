@@ -11,7 +11,7 @@ import SwiftUI
 struct RefrigerantCylinderScannerApp: App {
     var body: some Scene {
         WindowGroup {
-            CylinderDetailsView(cylinder: Cylinder.sampleData[0])
+            CylinderListView(cylinders: Cylinder.sampleData)
         }
     }
 }

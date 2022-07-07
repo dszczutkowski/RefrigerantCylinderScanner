@@ -27,6 +27,30 @@ struct Cylinder: Identifiable {
 //        locationHelper.requestLocation()
 //        self.location = locationHelper.location ?? CLLocationCoordinate2D(latitude: 0, longitude: 0)
     }
+    
+    func percentLeft() -> String {
+        return "\(Int(self.contentRemaining/self.maxCapacity*100))%"
+    }
+}
+
+extension Cylinder {
+    struct Data {
+        var name: String = ""
+        var maxCapacity: Double = 10
+        var contentRemaining: Double = 5
+    }
+    
+    var data: Data {
+        Data(name: name, maxCapacity: maxCapacity, contentRemaining: contentRemaining)
+    }
+    
+    init(data: Data) {
+        id = UUID()
+        name = data.name
+        date = Date.init(timeIntervalSinceNow: 0)
+        maxCapacity = data.maxCapacity
+        contentRemaining = data.contentRemaining > data.maxCapacity ? data.maxCapacity : data.contentRemaining
+    }
 }
 
 extension Cylinder {
