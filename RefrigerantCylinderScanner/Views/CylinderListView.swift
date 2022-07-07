@@ -26,6 +26,8 @@ struct CylinderListView: View {
 
 struct CylinderListView_Previews: PreviewProvider {
     static var previews: some View {
-        CylinderListView(cylinders: Cylinder.sampleData)
+        NavigationView {
+            CylinderListView(cylinders: Cylinder.sampleData)
+        }
     }
 }

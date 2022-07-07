@@ -22,15 +22,22 @@ struct CylinderDetailsView: View {
                         .resizable()
                         .interpolation(.none)
                         .scaledToFit()
-                        .frame(width: 200, height: 200, alignment: .center)
-                    Rectangle()
-                        .frame(width: 70, height: 200, alignment: .center)
-                        .overlay {
-                            Rectangle()
-                                .frame(width: 60, height: cylinder.contentRemaining/cylinder.maxCapacity*200, alignment: .bottom)
-                                .foregroundColor(.green)
-                            Text("\(cylinder.percentLeft())")
-                        }
+                        .frame(width: 210, height: 210, alignment: .center)
+                    Spacer()
+                    VStack {
+                        Rectangle()
+                            .frame(width: 48, height: 12, alignment: .top)
+                            .cornerRadius(10)
+                        Rectangle()
+                            .frame(width: 70, height: 188, alignment: .center)
+                            .overlay {
+                                Rectangle()
+                                    .frame(width: 60, height: cylinder.contentRemaining/cylinder.maxCapacity*188, alignment: .bottom)
+                                    .foregroundColor(.cyan)
+                                Text("\(cylinder.percentLeft())")
+                                    .foregroundColor(.black)
+                            }
+                    }
                 }
                 .padding(16)
                 Form {
@@ -63,7 +70,7 @@ struct CylinderDetailsView: View {
 struct CylinderDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CylinderDetailsView(cylinder: Cylinder.sampleData[0])
+            CylinderDetailsView(cylinder: Cylinder.sampleData[2])
         }
         .preferredColorScheme(.dark)
         .padding()
