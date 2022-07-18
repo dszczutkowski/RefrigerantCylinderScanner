@@ -6,13 +6,19 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct RefrigerantCylinderScannerApp: App {
+    
+    init() {
+        FirebaseApp.configure()
+    }
+    
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                CylinderListView(cylinders: Cylinder.sampleData)
+                LoginPageView()
             }
         }
     }

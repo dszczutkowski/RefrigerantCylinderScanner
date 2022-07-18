@@ -11,6 +11,7 @@ struct User: Identifiable {
     let id: UUID
     let name: String
     let surname: String
+    let credentials: Credentials = Credentials()
     
     init(id: UUID = UUID(), name: String, surname: String) {
         self.id = id

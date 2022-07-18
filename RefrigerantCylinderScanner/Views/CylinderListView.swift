@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct CylinderListView: View {
-    var cylinders: [Cylinder]
+    @EnvironmentObject var dataManager: DataManager
     
     var body: some View {
         List {
-            ForEach(cylinders) { cylinder in
+            ForEach(dataManager.cylinders) { cylinder in
                 NavigationLink(destination: CylinderDetailsView(cylinder: cylinder)) {
                     CylinderView(cylinder: cylinder)
                 }
@@ -27,7 +27,7 @@ struct CylinderListView: View {
 struct CylinderListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CylinderListView(cylinders: Cylinder.sampleData)
+            //CylinderListView(cylinders: Cylinder.sampleData)
         }
     }
 }

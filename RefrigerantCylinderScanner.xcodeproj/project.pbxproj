@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		D05A428C2875F5F2008046E5 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = D05A428B2875F5F2008046E5 /* CodeScanner */; };
+		D08EDAAC2885B02A00F16E73 /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08EDAAB2885B02A00F16E73 /* LoginPageView.swift */; };
+		D08EDAB42885BDFA00F16E73 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D08EDAB32885BDFA00F16E73 /* FirebaseAuth */; };
+		D08EDAB62885BDFA00F16E73 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D08EDAB52885BDFA00F16E73 /* FirebaseFirestore */; };
+		D08EDAB82885C19600F16E73 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08EDAB72885C19600F16E73 /* Credentials.swift */; };
+		D08EDABA2885C87E00F16E73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D08EDAB92885C87D00F16E73 /* GoogleService-Info.plist */; };
+		D08EDABC2885D00400F16E73 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08EDABB2885D00400F16E73 /* DataManager.swift */; };
 		D0947F8128775A3700080F32 /* CylinderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0947F8028775A3700080F32 /* CylinderListView.swift */; };
 		D0947F8328775DED00080F32 /* CylinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0947F8228775DED00080F32 /* CylinderView.swift */; };
 		D097F0AF28749CA8001A0D58 /* RefrigerantCylinderScannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D097F0AE28749CA8001A0D58 /* RefrigerantCylinderScannerApp.swift */; };
@@ -20,6 +26,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D08EDAAB2885B02A00F16E73 /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
+		D08EDAB72885C19600F16E73 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		D08EDAB92885C87D00F16E73 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "RefrigerantCylinderScanner/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D08EDABB2885D00400F16E73 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		D0947F8028775A3700080F32 /* CylinderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CylinderListView.swift; sourceTree = "<group>"; };
 		D0947F8228775DED00080F32 /* CylinderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CylinderView.swift; sourceTree = "<group>"; };
 		D097F0AB28749CA8001A0D58 /* RefrigerantCylinderScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RefrigerantCylinderScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,6 +48,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D05A428C2875F5F2008046E5 /* CodeScanner in Frameworks */,
+				D08EDAB42885BDFA00F16E73 /* FirebaseAuth in Frameworks */,
+				D08EDAB62885BDFA00F16E73 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +59,7 @@
 		D097F0A228749CA7001A0D58 = {
 			isa = PBXGroup;
 			children = (
+				D08EDAB92885C87D00F16E73 /* GoogleService-Info.plist */,
 				D097F0AD28749CA8001A0D58 /* RefrigerantCylinderScanner */,
 				D097F0AC28749CA8001A0D58 /* Products */,
 			);
@@ -69,6 +82,7 @@
 				D097F0AE28749CA8001A0D58 /* RefrigerantCylinderScannerApp.swift */,
 				D097F0B228749CB1001A0D58 /* Assets.xcassets */,
 				D097F0B428749CB1001A0D58 /* Preview Content */,
+				D08EDABB2885D00400F16E73 /* DataManager.swift */,
 			);
 			path = RefrigerantCylinderScanner;
 			sourceTree = "<group>";
@@ -86,6 +100,7 @@
 			children = (
 				D097F0BD28749FDA001A0D58 /* User.swift */,
 				D097F0BF2874A037001A0D58 /* Cylinder.swift */,
+				D08EDAB72885C19600F16E73 /* Credentials.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -104,6 +119,7 @@
 				D097F0C52874D5DF001A0D58 /* CylinderDetailsView.swift */,
 				D0947F8028775A3700080F32 /* CylinderListView.swift */,
 				D0947F8228775DED00080F32 /* CylinderView.swift */,
+				D08EDAAB2885B02A00F16E73 /* LoginPageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -126,6 +142,8 @@
 			name = RefrigerantCylinderScanner;
 			packageProductDependencies = (
 				D05A428B2875F5F2008046E5 /* CodeScanner */,
+				D08EDAB32885BDFA00F16E73 /* FirebaseAuth */,
+				D08EDAB52885BDFA00F16E73 /* FirebaseFirestore */,
 			);
 			productName = RefrigerantCylinderScanner;
 			productReference = D097F0AB28749CA8001A0D58 /* RefrigerantCylinderScanner.app */;
@@ -157,6 +175,7 @@
 			mainGroup = D097F0A228749CA7001A0D58;
 			packageReferences = (
 				D05A428A2875F5F2008046E5 /* XCRemoteSwiftPackageReference "CodeScanner" */,
+				D08EDAB22885BDFA00F16E73 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = D097F0AC28749CA8001A0D58 /* Products */;
 			projectDirPath = "";
@@ -174,6 +193,7 @@
 			files = (
 				D097F0B628749CB1001A0D58 /* Preview Assets.xcassets in Resources */,
 				D097F0B328749CB1001A0D58 /* Assets.xcassets in Resources */,
+				D08EDABA2885C87E00F16E73 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,12 +205,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0947F8328775DED00080F32 /* CylinderView.swift in Sources */,
+				D08EDABC2885D00400F16E73 /* DataManager.swift in Sources */,
 				D097F0AF28749CA8001A0D58 /* RefrigerantCylinderScannerApp.swift in Sources */,
 				D097F0BE28749FDA001A0D58 /* User.swift in Sources */,
+				D08EDAB82885C19600F16E73 /* Credentials.swift in Sources */,
 				D097F0C02874A037001A0D58 /* Cylinder.swift in Sources */,
 				D097F0C32874A3A8001A0D58 /* LocationHelper.swift in Sources */,
 				D0947F8128775A3700080F32 /* CylinderListView.swift in Sources */,
 				D097F0C62874D5DF001A0D58 /* CylinderDetailsView.swift in Sources */,
+				D08EDAAC2885B02A00F16E73 /* LoginPageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +426,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		D08EDAB22885BDFA00F16E73 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -410,6 +441,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D05A428A2875F5F2008046E5 /* XCRemoteSwiftPackageReference "CodeScanner" */;
 			productName = CodeScanner;
+		};
+		D08EDAB32885BDFA00F16E73 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D08EDAB22885BDFA00F16E73 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		D08EDAB52885BDFA00F16E73 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D08EDAB22885BDFA00F16E73 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
