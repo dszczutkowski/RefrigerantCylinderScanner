@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-struct Cylinder: Identifiable {
+struct Cylinder: Identifiable, Codable {
     let id: UUID
     var date: Date
     let name: String
@@ -36,8 +36,8 @@ struct Cylinder: Identifiable {
 extension Cylinder {
     struct Data {
         var name: String = ""
-        var maxCapacity: Double = 10
-        var contentRemaining: Double = 5
+        var maxCapacity: Double = 12
+        var contentRemaining: Double = 0
     }
     
     var data: Data {

@@ -9,6 +9,8 @@ import Firebase
 
 class DataManager: ObservableObject {
     @Published var cylinders: [Cylinder] = []
+    let saveKey = "Cylinders"
+    let db = Firestore.firestore()
     
     init () {
         fetchCylinders()
@@ -16,7 +18,6 @@ class DataManager: ObservableObject {
     
     func fetchCylinders() {
         cylinders.removeAll()
-        let db = Firestore.firestore()
         let ref = db.collection("Cylinders")
         ref.getDocuments { snapshot, error in
             guard error == nil else {
@@ -38,5 +39,19 @@ class DataManager: ObservableObject {
                 }
             }
         }
+    }
+    
+    private func save() {
+        if let encoded = try? JSONEncoder().encode(cylinders) {
+            UserDefaults.standard.set(encoded, forKey: saveKey)
+        }
+    }
+    
+    func add(_ cylinder: Cylinder) {
+        cylinders.append(cylinder)
+        self.db.collection("Cylinders").setValuesForKeys(
+            ["name" : cylinder.name, "maxCapacity" : cylinder.maxCapacity]
+        )
+        save()
     }
 }

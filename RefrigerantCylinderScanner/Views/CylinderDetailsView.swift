@@ -18,7 +18,7 @@ struct CylinderDetailsView: View {
     var body: some View {
             VStack {
                 HStack {
-                    Image(uiImage: generateQrCode(from: "\(cylinder.name)"))
+                    Image(uiImage: generateQrCode(from: "\(cylinder.name)\n\(cylinder.maxCapacity)"))
                         .resizable()
                         .interpolation(.none)
                         .scaledToFit()
