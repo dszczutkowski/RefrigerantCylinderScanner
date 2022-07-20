@@ -6,6 +6,7 @@
 //
 
 import Firebase
+import SwiftUI
 
 class DataManager: ObservableObject {
     @Published var cylinders: [Cylinder] = []
@@ -49,9 +50,20 @@ class DataManager: ObservableObject {
     
     func add(_ cylinder: Cylinder) {
         cylinders.append(cylinder)
-        self.db.collection("Cylinders").setValuesForKeys(
-            ["name" : cylinder.name, "maxCapacity" : cylinder.maxCapacity]
-        )
         save()
+        writeToDb(data: Cylinder.Data(name: cylinder.name, maxCapacity: cylinder.maxCapacity, contentRemaining: cylinder.contentRemaining))
+    }
+    
+    func writeToDb(data: Cylinder.Data) {
+        db.collection("Cylinders").document().setData([
+                "Name" : data.name,
+                "MaxCapacity" : data.maxCapacity
+            ]) { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                }
+            }
     }
 }

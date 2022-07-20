@@ -10,6 +10,8 @@ import CoreImage
 import CoreImage.CIFilterBuiltins
 
 struct CylinderDetailsView: View {
+    @EnvironmentObject var dataManager: DataManager
+    
     var cylinder: Cylinder
     
     let context = CIContext()
