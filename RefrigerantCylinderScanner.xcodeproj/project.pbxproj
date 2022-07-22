@@ -58,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D04D9A55288B39D40071F93B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D08EDABB2885D00400F16E73 /* DataManager.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		D097F0A228749CA7001A0D58 = {
 			isa = PBXGroup;
 			children = (
@@ -78,13 +86,13 @@
 		D097F0AD28749CA8001A0D58 /* RefrigerantCylinderScanner */ = {
 			isa = PBXGroup;
 			children = (
+				D04D9A55288B39D40071F93B /* Controllers */,
 				D097F0C12874A378001A0D58 /* Helpers */,
 				D097F0BC28749EBE001A0D58 /* Models */,
 				D097F0C42874C4E6001A0D58 /* Views */,
 				D097F0AE28749CA8001A0D58 /* RefrigerantCylinderScannerApp.swift */,
 				D097F0B228749CB1001A0D58 /* Assets.xcassets */,
 				D097F0B428749CB1001A0D58 /* Preview Content */,
-				D08EDABB2885D00400F16E73 /* DataManager.swift */,
 			);
 			path = RefrigerantCylinderScanner;
 			sourceTree = "<group>";
