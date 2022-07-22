@@ -11,6 +11,7 @@ import CoreImage.CIFilterBuiltins
 
 struct CylinderDetailsView: View {
     @EnvironmentObject var dataManager: DataManager
+    @State private var selection = 0
     
     var cylinder: Cylinder
     
@@ -44,16 +45,16 @@ struct CylinderDetailsView: View {
                 }
                 .padding(12)
                 Form {
-                    Text(cylinder.name)
-                        .textContentType(.name)
-                        .font(.title)
-                    Text("\(cylinder.date)")
-                        .textContentType(.dateTime)
-                        .font(.title2)
-                    Text("\(NSString(format: "%.2f", cylinder.contentRemaining )) litres")
-                    Text("\(Int(cylinder.maxCapacity)) litres")
+                    Section(header: Text("Last scanned")) {
+                        Text("\(cylinder.date)")
+                            .textContentType(.dateTime)
+                            .font(.title2)
+                    }
+                    Section(header: Text("Capacity")) {
+                        Text("\(NSString(format: "%.2f", cylinder.contentRemaining )) litres left")
+                        Text("out of \(Int(cylinder.maxCapacity)) litres")
+                    }
                 }
-                Spacer()
             }
             .navigationTitle("\(cylinder.name) details")
     }

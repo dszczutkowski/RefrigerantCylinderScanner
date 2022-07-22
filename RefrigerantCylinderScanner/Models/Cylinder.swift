@@ -20,7 +20,7 @@ struct Cylinder: Identifiable, Codable {
         self.id = id
         self.date = date
         self.name = name
-        self.maxCapacity = maxCapacity
+        self.maxCapacity = maxCapacity != 0 ? maxCapacity : 1
         self.contentRemaining = contentRemaining > maxCapacity ? maxCapacity : contentRemaining
         
 //        let locationHelper = LocationHelper()
@@ -29,6 +29,7 @@ struct Cylinder: Identifiable, Codable {
     }
     
     func percentLeft() -> String {
+        if(self.maxCapacity == 0) { return "0%" }
         return "\(Int(self.contentRemaining/self.maxCapacity*100))%"
     }
 }

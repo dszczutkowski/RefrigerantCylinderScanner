@@ -31,21 +31,20 @@ struct CylinderListView: View {
             }
         }
         .sheet(isPresented: $isShowingScanner) {
-            CodeScannerView(codeTypes: [.qr], simulatedData: "TEST-123\n100", completion: handleScan)
+            VStack {
+                CodeScannerView(codeTypes: [.qr], simulatedData: "TEST-123\n100", completion: handleScan)
+            }
         }
     }
     
     func handleScan(result: Result<ScanResult, ScanError>) {
         isShowingScanner = false
-
         switch result {
         case .success(let result):
             let details = result.string.components(separatedBy: "\n")
             guard details.count == 2 else { return }
-            
-            let data = Cylinder.Data(name: details[0], maxCapacity: Double(details[1])!, contentRemaining: Double(details[1])!)
 
-            let cylinder = Cylinder(data: data)
+            let cylinder = Cylinder(id: UUID(), date: Date.now, name: details[0], maxCapacity: Double(details[1]) ?? 1, contentRemaining: Double(details[1]) ?? 0)
             dataManager.add(cylinder)
         case .failure(let error):
             print("Scanning failed: \(error.localizedDescription)")
