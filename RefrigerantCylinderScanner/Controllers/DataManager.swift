@@ -51,19 +51,22 @@ class DataManager: ObservableObject {
     func add(_ cylinder: Cylinder) {
         cylinders.append(cylinder)
         save()
-        writeToDb(data: Cylinder.Data(name: cylinder.name, maxCapacity: cylinder.maxCapacity, contentRemaining: cylinder.contentRemaining))
+        writeToDb(data: Cylinder(name: cylinder.name, maxCapacity: cylinder.maxCapacity, contentRemaining: cylinder.contentRemaining))
     }
     
-    func writeToDb(data: Cylinder.Data) {
+    func writeToDb(data: Cylinder) {
         db.collection("Cylinders").document().setData([
-                "Name" : data.name,
-                "MaxCapacity" : data.maxCapacity
-            ]) { err in
-                if let err = err {
-                    print("Error writing document: \(err)")
-                } else {
-                    print("Document successfully written!")
-                }
+            "id" : "\(data.id)",
+            "date" : data.date,
+            "name" : data.name,
+            "maxCapacity" : data.maxCapacity,
+            "contentRemaining" : data.contentRemaining
+        ]) { err in
+            if let err = err {
+                print("Error writing document: \(err)")
+            } else {
+                print("Document successfully written!")
             }
+        }
     }
 }
