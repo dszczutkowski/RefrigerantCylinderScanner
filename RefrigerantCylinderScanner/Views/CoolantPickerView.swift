@@ -18,7 +18,7 @@ struct CoolantPickerView: View {
             RoundedRectangle(cornerRadius: 16, style: .continuous)
                 .foregroundStyle(.linearGradient(colors: [.pink, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
                 .frame(width: UIScreen.main.bounds.width*0.8, height: 40, alignment: .center)
-                .offset(x: 20, y: 138)
+                .offset(x: 20, y: 90)
                 .opacity(0.6)
             HStack(spacing: 0) {
                 Picker(selection: self.$integerValue, label: Text("")) {
@@ -44,13 +44,13 @@ struct CoolantPickerView: View {
                         Text("\($0)")
                     }
                 }
-                    .pickerStyle(.wheel)
-                    .frame(width: geometry.size.width/4, height: geometry.size.height, alignment: .center)
-                    .compositingGroup()
-                    .clipped()
+                .pickerStyle(.wheel)
+                .frame(width: geometry.size.width/4, height: geometry.size.height, alignment: .center)
+                .compositingGroup()
+                .clipped()
                 Text("Litres")
-                    .font(.system(size: 30, weight: .bold, design: .rounded))
-                    .frame(width: 18, height: 280)
+                    .font(.system(size: 24, weight: .bold, design: .rounded))
+                    .frame(width: 14, height: 180)
                     .offset(x: 10)
             }
             .padding(10)

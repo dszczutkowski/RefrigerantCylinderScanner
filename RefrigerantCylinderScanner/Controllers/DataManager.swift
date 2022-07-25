@@ -49,19 +49,26 @@ class DataManager: ObservableObject {
     }
     
     func add(_ cylinder: Cylinder) {
+        if(cylinders.contains(where: { $0.id == cylinder.id })) {
+            cylinders.removeAll(where: { $0.id == cylinder.id })
+        }
         cylinders.append(cylinder)
         save()
         writeToDb(data: Cylinder(name: cylinder.name, maxCapacity: cylinder.maxCapacity, contentRemaining: cylinder.contentRemaining))
     }
     
     func writeToDb(data: Cylinder) {
-        db.collection("Cylinders").document().setData([
-            "id" : "\(data.id)",
-            "date" : data.date,
-            "name" : data.name,
-            "maxCapacity" : data.maxCapacity,
-            "contentRemaining" : data.contentRemaining
-        ]) { err in
+        let ref = db.collection("Cylinders")
+        let dataTable = [
+        "id" : "\(data.id)",
+        "date" : data.date,
+        "name" : data.name,
+        "maxCapacity" : data.maxCapacity,
+        "contentRemaining" : data.contentRemaining
+        ] as [String : Any]
+        
+        ref.document("\(data.id)").setData(dataTable)
+        { err in
             if let err = err {
                 print("Error writing document: \(err)")
             } else {
