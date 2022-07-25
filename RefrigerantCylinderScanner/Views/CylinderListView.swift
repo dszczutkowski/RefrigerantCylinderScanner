@@ -42,9 +42,9 @@ struct CylinderListView: View {
         switch result {
         case .success(let result):
             let details = result.string.components(separatedBy: "\n")
-            guard details.count == 2 else { return }
+            guard details.count == 3 else { return }
 
-            let cylinder = Cylinder(id: UUID(), date: Date.now, name: details[0], maxCapacity: Double(details[1]) ?? 1, contentRemaining: Double(details[1]) ?? 0)
+            let cylinder = Cylinder(id: UUID(uuidString: details[0]) ?? UUID(), date: Date.now, name: details[1], maxCapacity: Double(details[2]) ?? 1)
             dataManager.add(cylinder)
         case .failure(let error):
             print("Scanning failed: \(error.localizedDescription)")

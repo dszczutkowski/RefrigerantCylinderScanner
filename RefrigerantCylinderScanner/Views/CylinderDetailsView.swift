@@ -21,7 +21,7 @@ struct CylinderDetailsView: View {
     var body: some View {
             VStack {
                 HStack {
-                    Image(uiImage: generateQrCode(from: "\(cylinder.name)\n\(cylinder.maxCapacity)"))
+                    Image(uiImage: generateQrCode(from: "\(cylinder.id)\n\(cylinder.name)\n\(cylinder.maxCapacity)"))
                         .resizable()
                         .interpolation(.none)
                         .scaledToFit()
@@ -74,7 +74,7 @@ struct CylinderDetailsView: View {
 struct CylinderDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CylinderDetailsView(cylinder: Cylinder.sampleData[3])
+            CylinderDetailsView(cylinder: Cylinder.sampleData[1])
         }
         .preferredColorScheme(.dark)
         .padding()

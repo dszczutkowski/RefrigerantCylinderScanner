@@ -49,12 +49,12 @@ class DataManager: ObservableObject {
     }
     
     func add(_ cylinder: Cylinder) {
-        if(cylinders.contains(where: { $0.id == cylinder.id })) {
-            cylinders.removeAll(where: { $0.id == cylinder.id })
+        if(cylinders.contains(where: { $0.name == cylinder.name })) {
+            cylinders.removeAll(where: { $0.name == cylinder.name })
         }
         cylinders.append(cylinder)
         save()
-        writeToDb(data: Cylinder(name: cylinder.name, maxCapacity: cylinder.maxCapacity, contentRemaining: cylinder.contentRemaining))
+        writeToDb(data: Cylinder(id: cylinder.id, name: cylinder.name, maxCapacity: cylinder.maxCapacity, contentRemaining: cylinder.contentRemaining))
     }
     
     func writeToDb(data: Cylinder) {
@@ -67,7 +67,7 @@ class DataManager: ObservableObject {
         "contentRemaining" : data.contentRemaining
         ] as [String : Any]
         
-        ref.document("\(data.id)").setData(dataTable)
+        ref.document("\(data.name)").setData(dataTable)
         { err in
             if let err = err {
                 print("Error writing document: \(err)")
