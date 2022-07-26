@@ -15,6 +15,7 @@
 		D08EDABA2885C87E00F16E73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D08EDAB92885C87D00F16E73 /* GoogleService-Info.plist */; };
 		D08EDABC2885D00400F16E73 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08EDABB2885D00400F16E73 /* DataManager.swift */; };
 		D08EDABE28889F9700F16E73 /* CoolantPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08EDABD28889F9700F16E73 /* CoolantPickerView.swift */; };
+		D091CCB8289089E800007506 /* NumbersOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = D091CCB7289089E800007506 /* NumbersOnly.swift */; };
 		D0947F8128775A3700080F32 /* CylinderListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0947F8028775A3700080F32 /* CylinderListView.swift */; };
 		D0947F8328775DED00080F32 /* CylinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0947F8228775DED00080F32 /* CylinderView.swift */; };
 		D097F0AF28749CA8001A0D58 /* RefrigerantCylinderScannerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D097F0AE28749CA8001A0D58 /* RefrigerantCylinderScannerApp.swift */; };
@@ -32,6 +33,7 @@
 		D08EDAB92885C87D00F16E73 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "RefrigerantCylinderScanner/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D08EDABB2885D00400F16E73 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		D08EDABD28889F9700F16E73 /* CoolantPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoolantPickerView.swift; sourceTree = "<group>"; };
+		D091CCB7289089E800007506 /* NumbersOnly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumbersOnly.swift; sourceTree = "<group>"; };
 		D0947F8028775A3700080F32 /* CylinderListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CylinderListView.swift; sourceTree = "<group>"; };
 		D0947F8228775DED00080F32 /* CylinderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CylinderView.swift; sourceTree = "<group>"; };
 		D097F0AB28749CA8001A0D58 /* RefrigerantCylinderScanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RefrigerantCylinderScanner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				D097F0C22874A3A8001A0D58 /* LocationHelper.swift */,
+				D091CCB7289089E800007506 /* NumbersOnly.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 				D097F0C32874A3A8001A0D58 /* LocationHelper.swift in Sources */,
 				D0947F8128775A3700080F32 /* CylinderListView.swift in Sources */,
 				D097F0C62874D5DF001A0D58 /* CylinderDetailsView.swift in Sources */,
+				D091CCB8289089E800007506 /* NumbersOnly.swift in Sources */,
 				D08EDAAC2885B02A00F16E73 /* LoginPageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

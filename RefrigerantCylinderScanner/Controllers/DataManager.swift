@@ -75,5 +75,21 @@ class DataManager: ObservableObject {
                 print("Document successfully written!")
             }
         }
+        
+        ref.document("\(data.name)").collection("ScanHistory").addDocument(data: [
+            "date" : data.date
+        ])
+    }
+    
+    func updateCapacity(documentName: String, capacity: Double) {
+        db.collection("Cylinders").document(documentName).updateData([
+            "contentRemaining" : capacity
+        ]) { err in
+            if let err = err {
+                print("Error updating document: \(err)")
+            } else {
+                print("Document successfully updated!")
+            }
+        }
     }
 }

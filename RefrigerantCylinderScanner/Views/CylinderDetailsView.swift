@@ -12,6 +12,7 @@ import CoreImage.CIFilterBuiltins
 struct CylinderDetailsView: View {
     @EnvironmentObject var dataManager: DataManager
     @State private var selection = 0
+    @State private var contentRemaining: NumbersOnly = NumbersOnly()
     
     var cylinder: Cylinder
     
@@ -51,14 +52,23 @@ struct CylinderDetailsView: View {
                             .font(.title2)
                     }
                     Section(header: Text("Capacity")) {
-                        Text("\(NSString(format: "%.2f", cylinder.contentRemaining )) litres left")
+                        TextField("\(NSString(format: "%.2f", cylinder.contentRemaining )) litres left", text: $contentRemaining.value)
+                            .keyboardType(.decimalPad)
                         Text("out of \(Int(cylinder.maxCapacity)) litres")
-                    }
+                    
                 }
             }
             .navigationTitle("\(cylinder.name) details")
+            .toolbar {
+                Button {
+                    dataManager.updateCapacity(documentName: cylinder.name, capacity: Double(contentRemaining.value)!)
+                } label: {
+                    Text("Save")
+                }
+            }
+        }
     }
-    
+
     func generateQrCode(from string: String) -> UIImage {
         filter.message = Data(string.utf8)
         

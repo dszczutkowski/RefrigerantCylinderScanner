@@ -15,7 +15,8 @@ struct CylinderListView: View {
     var body: some View {
         List {
             ForEach(dataManager.cylinders) { cylinder in
-                NavigationLink(destination: CylinderDetailsView(cylinder: cylinder)) {
+                NavigationLink(destination: CylinderDetailsView(cylinder: cylinder)
+                    .environmentObject(dataManager)) {
                     CylinderView(cylinder: cylinder)
                 }
                 .listRowBackground(Color.gray)
