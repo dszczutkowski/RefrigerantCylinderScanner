@@ -25,6 +25,9 @@
 		D097F0C02874A037001A0D58 /* Cylinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D097F0BF2874A037001A0D58 /* Cylinder.swift */; };
 		D097F0C32874A3A8001A0D58 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D097F0C22874A3A8001A0D58 /* LocationHelper.swift */; };
 		D097F0C62874D5DF001A0D58 /* CylinderDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D097F0C52874D5DF001A0D58 /* CylinderDetailsView.swift */; };
+		D09B19A42899B18A0083AC7E /* MaxCapValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09B19A32899B18A0083AC7E /* MaxCapValues.swift */; };
+		D09B19A62899B71A0083AC7E /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09B19A52899B71A0083AC7E /* History.swift */; };
+		D09B19A82899C5C80083AC7E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09B19A72899C5C80083AC7E /* LocationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		D097F0BF2874A037001A0D58 /* Cylinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cylinder.swift; sourceTree = "<group>"; };
 		D097F0C22874A3A8001A0D58 /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 		D097F0C52874D5DF001A0D58 /* CylinderDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CylinderDetailsView.swift; sourceTree = "<group>"; };
+		D09B19A32899B18A0083AC7E /* MaxCapValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxCapValues.swift; sourceTree = "<group>"; };
+		D09B19A52899B71A0083AC7E /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		D09B19A72899C5C80083AC7E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +70,7 @@
 			isa = PBXGroup;
 			children = (
 				D08EDABB2885D00400F16E73 /* DataManager.swift */,
+				D09B19A72899C5C80083AC7E /* LocationManager.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -88,6 +95,7 @@
 		D097F0AD28749CA8001A0D58 /* RefrigerantCylinderScanner */ = {
 			isa = PBXGroup;
 			children = (
+				D09B19A22899B0E50083AC7E /* Enums */,
 				D04D9A55288B39D40071F93B /* Controllers */,
 				D097F0C12874A378001A0D58 /* Helpers */,
 				D097F0BC28749EBE001A0D58 /* Models */,
@@ -113,6 +121,7 @@
 				D097F0BD28749FDA001A0D58 /* User.swift */,
 				D097F0BF2874A037001A0D58 /* Cylinder.swift */,
 				D08EDAB72885C19600F16E73 /* Credentials.swift */,
+				D09B19A52899B71A0083AC7E /* History.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -136,6 +145,14 @@
 				D08EDABD28889F9700F16E73 /* CoolantPickerView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		D09B19A22899B0E50083AC7E /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				D09B19A32899B18A0083AC7E /* MaxCapValues.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -220,6 +237,8 @@
 			files = (
 				D0947F8328775DED00080F32 /* CylinderView.swift in Sources */,
 				D08EDABC2885D00400F16E73 /* DataManager.swift in Sources */,
+				D09B19A82899C5C80083AC7E /* LocationManager.swift in Sources */,
+				D09B19A62899B71A0083AC7E /* History.swift in Sources */,
 				D08EDABE28889F9700F16E73 /* CoolantPickerView.swift in Sources */,
 				D097F0AF28749CA8001A0D58 /* RefrigerantCylinderScannerApp.swift in Sources */,
 				D097F0BE28749FDA001A0D58 /* User.swift in Sources */,
@@ -230,6 +249,7 @@
 				D097F0C62874D5DF001A0D58 /* CylinderDetailsView.swift in Sources */,
 				D091CCB8289089E800007506 /* NumbersOnly.swift in Sources */,
 				D08EDAAC2885B02A00F16E73 /* LoginPageView.swift in Sources */,
+				D09B19A42899B18A0083AC7E /* MaxCapValues.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +382,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = " Please allow location access to have scanning location updated.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -393,6 +414,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = " Please allow location access to have scanning location updated.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

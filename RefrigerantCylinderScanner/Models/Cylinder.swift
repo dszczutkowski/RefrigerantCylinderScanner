@@ -15,13 +15,15 @@ struct Cylinder: Identifiable, Codable {
     //let location: CLLocationCoordinate2D
     let maxCapacity: Double
     var contentRemaining: Double
+    var contentTaken: Double?
     
-    init(id: UUID = UUID(), date: Date = Date(timeIntervalSinceNow: 0), name: String, maxCapacity: Double, contentRemaining: Double = 0) {
+    init(id: UUID = UUID(), date: Date = Date(timeIntervalSinceNow: 0), name: String, maxCapacity: Double, contentRemaining: Double = 0, contentTaken: Double = 0) {
         self.id = id
         self.date = date
         self.name = name
         self.maxCapacity = maxCapacity != 0 ? maxCapacity : 1
         self.contentRemaining = contentRemaining > maxCapacity ? maxCapacity : contentRemaining
+        self.contentTaken = contentTaken
         
 //        let locationHelper = LocationHelper()
 //        locationHelper.requestLocation()
@@ -61,6 +63,7 @@ extension Cylinder {
         Cylinder(name: "BRS_2022", maxCapacity: 100, contentRemaining: 8.23),
         Cylinder(name: "SPD_334343_3D3", maxCapacity: 6, contentRemaining: 2),
         Cylinder(name: "GJZ_542", maxCapacity: 12, contentRemaining: 24),
-        Cylinder(name: "Kajtek", maxCapacity: 5)
+        Cylinder(name: "Kajtek", maxCapacity: 5),
+        Cylinder(name: "Test dla Kuby 123", maxCapacity: 69, contentRemaining: 33)
     ]
 }

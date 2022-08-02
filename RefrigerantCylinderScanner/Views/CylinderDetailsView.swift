@@ -84,7 +84,7 @@ struct CylinderDetailsView: View {
 struct CylinderDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CylinderDetailsView(cylinder: Cylinder.sampleData[1])
+            CylinderDetailsView(cylinder: Cylinder.sampleData[5])
         }
         .preferredColorScheme(.dark)
         .padding()

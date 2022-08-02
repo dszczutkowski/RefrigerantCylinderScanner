@@ -76,8 +76,11 @@ class DataManager: ObservableObject {
             }
         }
         
+        let history = History(contentTaken: data.contentTaken!, localisation: getLocalisation())
         ref.document("\(data.name)").collection("ScanHistory").addDocument(data: [
-            "date" : data.date
+            "date" : history.date,
+            "localisation" : history.localisation,
+            "contentTaken" : history.contentTaken
         ])
     }
     
@@ -91,5 +94,18 @@ class DataManager: ObservableObject {
                 print("Document successfully updated!")
             }
         }
+    }
+    
+    func getLocalisation() -> String {
+        var formatedAdress = ""
+        
+        LocationManager.shared.getUserLocation { location in
+            _ = location.coordinate
+        }
+        LocationManager.shared.lookUpCurrentLocation { placemark in
+            formatedAdress = placemark?.postalAddressFormatted ?? "none"
+        }
+        
+        return formatedAdress
     }
 }
