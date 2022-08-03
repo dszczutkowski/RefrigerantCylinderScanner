@@ -6,8 +6,6 @@
 //
 
 import SwiftUI
-import CoreImage
-import CoreImage.CIFilterBuiltins
 
 struct CylinderDetailsView: View {
     @EnvironmentObject var dataManager: DataManager
@@ -15,14 +13,12 @@ struct CylinderDetailsView: View {
     @State private var contentRemaining: NumbersOnly = NumbersOnly()
     
     var cylinder: Cylinder
-    
-    let context = CIContext()
-    let filter = CIFilter.qrCodeGenerator()
+    let qrGenerator = QrGenerator()
     
     var body: some View {
             VStack {
                 HStack {
-                    Image(uiImage: generateQrCode(from: "\(cylinder.id)\n\(cylinder.name)\n\(cylinder.maxCapacity)"))
+                    Image(uiImage: qrGenerator.generateQrCode(from: "\(cylinder.id)\n\(cylinder.name)\n\(cylinder.maxCapacity)"))
                         .resizable()
                         .interpolation(.none)
                         .scaledToFit()
@@ -69,16 +65,6 @@ struct CylinderDetailsView: View {
         }
     }
 
-    func generateQrCode(from string: String) -> UIImage {
-        filter.message = Data(string.utf8)
-        
-        if let outputImage = filter.outputImage {
-            if let cgImage = context.createCGImage(outputImage, from: outputImage.extent) {
-                return UIImage(cgImage: cgImage)
-            }
-        }
-        return UIImage(systemName: "xmark.circle") ?? UIImage()
-    }
 }
 
 struct CylinderDetailsView_Previews: PreviewProvider {
