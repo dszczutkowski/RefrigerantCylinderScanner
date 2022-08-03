@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import Firebase
 
 struct LoginPageView: View {
     @State private var email = ""
@@ -14,6 +13,8 @@ struct LoginPageView: View {
     @State private var userIsLoggedIn = false
     
     @StateObject var dataManager = DataManager()
+    
+    let loginController = LoginController()
     
     var body: some View {
         if userIsLoggedIn {
@@ -66,7 +67,7 @@ struct LoginPageView: View {
                     .foregroundColor(.white)
                 
                 Button {
-                    register()
+                    loginController.register(email: email, password: password)
                 } label: {
                     Text("Sign up")
                         .bold()
@@ -82,7 +83,8 @@ struct LoginPageView: View {
                 .offset(y: 100)
                 
                 Button {
-                    login()
+                    loginController.login(email: email, password: password)
+                    userIsLoggedIn = true
                 } label: {
                     Text("Already have an account? Login")
                         .bold()
@@ -93,31 +95,8 @@ struct LoginPageView: View {
                 
             }
             .frame(width: 350)
-            .onAppear() {
-                Auth.auth().addStateDidChangeListener { auth, user in
-                    if user != nil {
-                        userIsLoggedIn.toggle()
-                    }
-                }
-            }
         }
         .ignoresSafeArea()
-    }
-    
-    func login() {
-        Auth.auth().signIn(withEmail: email, password: password) { result, error in
-            if error != nil {
-                print(error!.localizedDescription)
-            }
-        }
-    }
-    
-    func register() {
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in
-            if error != nil {
-                print(error!.localizedDescription)
-            }
-        }
     }
 }
 

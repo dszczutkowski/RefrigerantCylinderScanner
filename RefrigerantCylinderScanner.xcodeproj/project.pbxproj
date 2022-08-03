@@ -25,6 +25,7 @@
 		D097F0C02874A037001A0D58 /* Cylinder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D097F0BF2874A037001A0D58 /* Cylinder.swift */; };
 		D097F0C32874A3A8001A0D58 /* LocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D097F0C22874A3A8001A0D58 /* LocationHelper.swift */; };
 		D097F0C62874D5DF001A0D58 /* CylinderDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D097F0C52874D5DF001A0D58 /* CylinderDetailsView.swift */; };
+		D098CB45289AE9EA0052DA97 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D098CB44289AE9EA0052DA97 /* LoginController.swift */; };
 		D09B19A42899B18A0083AC7E /* MaxCapValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09B19A32899B18A0083AC7E /* MaxCapValues.swift */; };
 		D09B19A62899B71A0083AC7E /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09B19A52899B71A0083AC7E /* History.swift */; };
 		D09B19A82899C5C80083AC7E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09B19A72899C5C80083AC7E /* LocationManager.swift */; };
@@ -47,6 +48,7 @@
 		D097F0BF2874A037001A0D58 /* Cylinder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cylinder.swift; sourceTree = "<group>"; };
 		D097F0C22874A3A8001A0D58 /* LocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHelper.swift; sourceTree = "<group>"; };
 		D097F0C52874D5DF001A0D58 /* CylinderDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CylinderDetailsView.swift; sourceTree = "<group>"; };
+		D098CB44289AE9EA0052DA97 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		D09B19A32899B18A0083AC7E /* MaxCapValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaxCapValues.swift; sourceTree = "<group>"; };
 		D09B19A52899B71A0083AC7E /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		D09B19A72899C5C80083AC7E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			children = (
 				D08EDABB2885D00400F16E73 /* DataManager.swift */,
 				D09B19A72899C5C80083AC7E /* LocationManager.swift */,
+				D098CB44289AE9EA0052DA97 /* LoginController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				D0947F8128775A3700080F32 /* CylinderListView.swift in Sources */,
 				D097F0C62874D5DF001A0D58 /* CylinderDetailsView.swift in Sources */,
 				D091CCB8289089E800007506 /* NumbersOnly.swift in Sources */,
+				D098CB45289AE9EA0052DA97 /* LoginController.swift in Sources */,
 				D08EDAAC2885B02A00F16E73 /* LoginPageView.swift in Sources */,
 				D09B19A42899B18A0083AC7E /* MaxCapValues.swift in Sources */,
 			);
