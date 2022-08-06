@@ -13,7 +13,7 @@ struct CylinderDetailsView: View {
     @State private var contentRemaining: NumbersOnly = NumbersOnly()
     
     var cylinder: Cylinder
-    let qrGenerator = QrGenerator()
+    private let qrGenerator = QrGenerator()
     
     var body: some View {
             VStack {
@@ -56,15 +56,13 @@ struct CylinderDetailsView: View {
             }
             .navigationTitle("\(cylinder.name) details")
             .toolbar {
-                Button {
-                    dataManager.updateCapacity(documentName: cylinder.name, capacity: Double(contentRemaining.value)!)
-                } label: {
-                    Text("Save")
+                NavigationLink(destination: CylinderEditView(cylinder: cylinder)) {
+                    Text("Edit")
                 }
+                
             }
         }
     }
-
 }
 
 struct CylinderDetailsView_Previews: PreviewProvider {

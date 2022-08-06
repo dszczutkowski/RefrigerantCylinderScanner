@@ -7,6 +7,7 @@
 
 import Firebase
 import SwiftUI
+import CoreLocation
 
 class DataManager: ObservableObject {
     @Published var cylinders: [Cylinder] = []
@@ -98,9 +99,10 @@ class DataManager: ObservableObject {
     
     func getLocalisation() -> String {
         var formatedAdress = ""
+        var coordinate = CLLocationCoordinate2D()
         
         LocationManager.shared.getUserLocation { location in
-            _ = location.coordinate
+            coordinate = location.coordinate
         }
         LocationManager.shared.lookUpCurrentLocation { placemark in
             formatedAdress = placemark?.postalAddressFormatted ?? "none"

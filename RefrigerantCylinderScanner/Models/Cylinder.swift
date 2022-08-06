@@ -17,11 +17,11 @@ struct Cylinder: Identifiable, Codable {
     var contentRemaining: Double
     var contentTaken: Double?
     
-    init(id: UUID = UUID(), date: Date = Date(timeIntervalSinceNow: 0), name: String, maxCapacity: Double, contentRemaining: Double = 0, contentTaken: Double = 0) {
+    init(id: UUID = UUID(), date: Date = Date(timeIntervalSinceNow: 0), name: String, maxCapacity: Double = 10.0, contentRemaining: Double = 0, contentTaken: Double = 0) {
         self.id = id
         self.date = date
         self.name = name
-        self.maxCapacity = maxCapacity != 0 ? maxCapacity : 1
+        self.maxCapacity = maxCapacity != 0 ? maxCapacity : 10.0
         self.contentRemaining = contentRemaining > maxCapacity ? maxCapacity : contentRemaining
         self.contentTaken = contentTaken
         

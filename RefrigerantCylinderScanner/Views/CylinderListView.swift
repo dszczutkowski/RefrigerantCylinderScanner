@@ -11,6 +11,8 @@ import CodeScanner
 struct CylinderListView: View {
     @EnvironmentObject var dataManager: DataManager
     @State private var isShowingScanner = false
+    @State private var createNewItem = false
+    @State var currentSelection: Int? = nil
     
     var body: some View {
         List {
@@ -32,9 +34,7 @@ struct CylinderListView: View {
             }
         }
         .sheet(isPresented: $isShowingScanner) {
-            VStack {
-                CodeScannerView(codeTypes: [.qr], simulatedData: "TEST-123\n100", completion: handleScan)
-            }
+            CodeScannerView(codeTypes: [.qr], simulatedData: "TEST-123\n100", completion: handleScan)
         }
     }
     
