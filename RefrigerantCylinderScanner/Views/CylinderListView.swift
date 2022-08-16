@@ -34,7 +34,7 @@ struct CylinderListView: View {
             }
         }
         .sheet(isPresented: $isShowingScanner) {
-            CodeScannerView(codeTypes: [.qr], simulatedData: "TEST-123\n100", completion: handleScan)
+            CodeScannerView(codeTypes: [.code128], simulatedData: "TEST-123\n100", completion: handleScan)
         }
     }
     
@@ -42,10 +42,8 @@ struct CylinderListView: View {
         isShowingScanner = false
         switch result {
         case .success(let result):
-            let details = result.string.components(separatedBy: "\n")
-            guard details.count == 3 else { return }
-
-            let cylinder = Cylinder(id: UUID(uuidString: details[0]) ?? UUID(), date: Date.now, name: details[1], maxCapacity: Double(details[2]) ?? 1)
+            let details = result.string
+            let cylinder = Cylinder(id: UInt(details)!)
             dataManager.add(cylinder)
         case .failure(let error):
             print("Scanning failed: \(error.localizedDescription)")

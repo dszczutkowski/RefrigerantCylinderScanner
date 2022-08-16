@@ -31,12 +31,12 @@ class DataManager: ObservableObject {
                 for document in snapshot.documents {
                     let data = document.data()
                     
+                    let id = data["id"] as? String ?? ""
                     let date = data["date"] as? Date ?? Date.now
-                    let name = data["name"] as? String ?? ""
                     let maxCap = data["maxCapacity"] as? Double ?? 0
                     let cntRem = data["contentRemaining"] as? Double ?? 0
                     
-                    let cylinder = Cylinder(date: date, name: name, maxCapacity: maxCap, contentRemaining: cntRem)
+                    let cylinder = Cylinder(id: UInt(id) ?? 010101, date: date, maxCapacity: maxCap, contentRemaining: cntRem)
                     self.cylinders.append(cylinder)
                 }
             }
@@ -55,7 +55,7 @@ class DataManager: ObservableObject {
         }
         cylinders.append(cylinder)
         save()
-        writeToDb(data: Cylinder(id: cylinder.id, name: cylinder.name, maxCapacity: cylinder.maxCapacity, contentRemaining: cylinder.contentRemaining))
+        writeToDb(data: Cylinder(id: cylinder.id, maxCapacity: cylinder.maxCapacity, contentRemaining: cylinder.contentRemaining))
     }
     
     func writeToDb(data: Cylinder) {

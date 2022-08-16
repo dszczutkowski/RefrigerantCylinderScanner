@@ -8,8 +8,8 @@
 import Foundation
 import CoreLocation
 
-struct Cylinder: Identifiable, Codable {
-    let id: UUID
+struct Cylinder: Identifiable, Encodable {
+    let id: UInt
     var date: Date
     let name: String
     //let location: CLLocationCoordinate2D
@@ -17,10 +17,10 @@ struct Cylinder: Identifiable, Codable {
     var contentRemaining: Double
     var contentTaken: Double?
     
-    init(id: UUID = UUID(), date: Date = Date(timeIntervalSinceNow: 0), name: String, maxCapacity: Double = 10.0, contentRemaining: Double = 0, contentTaken: Double = 0) {
+    init(id: UInt, date: Date = Date(timeIntervalSinceNow: 0), maxCapacity: Double = 10.0, contentRemaining: Double = 0, contentTaken: Double = 0) {
         self.id = id
         self.date = date
-        self.name = name
+        self.name = "\(id)"
         self.maxCapacity = maxCapacity != 0 ? maxCapacity : 10.0
         self.contentRemaining = contentRemaining > maxCapacity ? maxCapacity : contentRemaining
         self.contentTaken = contentTaken
@@ -48,7 +48,7 @@ extension Cylinder {
     }
     
     init(data: Data) {
-        id = UUID()
+        id = UInt()
         name = data.name
         date = Date.init(timeIntervalSinceNow: 0)
         maxCapacity = data.maxCapacity
@@ -59,11 +59,11 @@ extension Cylinder {
 extension Cylinder {
     static let sampleData: [Cylinder] =
     [
-        Cylinder(name: "GJZ_20553", maxCapacity: 12, contentRemaining: 8.23),
-        Cylinder(name: "BRS_2022", maxCapacity: 100, contentRemaining: 8.23),
-        Cylinder(name: "SPD_334343_3D3", maxCapacity: 6, contentRemaining: 2),
-        Cylinder(name: "GJZ_542", maxCapacity: 12, contentRemaining: 24),
-        Cylinder(name: "Kajtek", maxCapacity: 5),
-        Cylinder(name: "Test dla Kuby 123", maxCapacity: 69, contentRemaining: 33)
+        Cylinder(id: 12341, maxCapacity: 12, contentRemaining: 8.23),
+        Cylinder(id: 12345231, maxCapacity: 100, contentRemaining: 8.23),
+        Cylinder(id: 555535, maxCapacity: 6, contentRemaining: 2),
+        Cylinder(id: 951235124, maxCapacity: 12, contentRemaining: 24),
+        Cylinder(id: 33236464, maxCapacity: 5),
+        Cylinder(id: 6436363, maxCapacity: 69, contentRemaining: 33)
     ]
 }

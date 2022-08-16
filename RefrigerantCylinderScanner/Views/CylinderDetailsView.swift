@@ -18,12 +18,14 @@ struct CylinderDetailsView: View {
     var body: some View {
             VStack {
                 HStack {
-                    Image(uiImage: qrGenerator.generateQrCode(from: "\(cylinder.id)\n\(cylinder.name)\n\(cylinder.maxCapacity)"))
-                        .resizable()
-                        .interpolation(.none)
-                        .scaledToFit()
-                        .frame(width: 210, height: 210, alignment: .center)
-                        .padding(8)
+                    Section(header: Text("Capacity")) {
+                        VStack {
+                            TextField("\(NSString(format: "%.2f", cylinder.contentRemaining )) litres left", text: $contentRemaining.value)
+                                .keyboardType(.decimalPad)
+                            Text("out of \(Int(cylinder.maxCapacity)) litres")
+                        }
+                    }
+                    
                     VStack {
                         Rectangle()
                             .frame(width: 48, height: 12, alignment: .top)
@@ -47,12 +49,6 @@ struct CylinderDetailsView: View {
                             .textContentType(.dateTime)
                             .font(.title2)
                     }
-                    Section(header: Text("Capacity")) {
-                        TextField("\(NSString(format: "%.2f", cylinder.contentRemaining )) litres left", text: $contentRemaining.value)
-                            .keyboardType(.decimalPad)
-                        Text("out of \(Int(cylinder.maxCapacity)) litres")
-                    
-                }
             }
             .navigationTitle("\(cylinder.name) details")
             .toolbar {
