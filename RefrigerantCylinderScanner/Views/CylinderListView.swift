@@ -11,8 +11,9 @@ import CodeScanner
 struct CylinderListView: View {
     @EnvironmentObject var dataManager: DataManager
     @State private var isShowingScanner = false
+    @State private var isShowingNewCylinder = false
     @State private var createNewItem = false
-    @State var currentSelection: Int? = nil
+    @State var selection: String? = nil
     
     var body: some View {
         List {
@@ -23,6 +24,9 @@ struct CylinderListView: View {
                 }
                 .listRowBackground(Color.gray)
             }
+            NavigationLink("EditView", destination: CylinderEditView(cylinder: dataManager.tmpCylinder).environmentObject(dataManager), tag: "old", selection: $selection)
+                .hidden()
+                .listRowBackground(Color(white: 0, opacity: 100))
         }
         .navigationTitle("Cylinder list")
         .foregroundColor(Color.black)
@@ -34,7 +38,7 @@ struct CylinderListView: View {
             }
         }
         .sheet(isPresented: $isShowingScanner) {
-            CodeScannerView(codeTypes: [.code128], simulatedData: "TEST-123\n100", completion: handleScan)
+            CodeScannerView(codeTypes: [.code128], simulatedData: "TEST-123", completion: handleScan)
         }
     }
     
@@ -44,7 +48,9 @@ struct CylinderListView: View {
         case .success(let result):
             let details = result.string
             let cylinder = Cylinder(id: UInt(details)!)
-            dataManager.add(cylinder)
+            dataManager.saveTmpCylinder(cylinder: cylinder)
+            selection = "old"
+            //dataManager.add(cylinder)
         case .failure(let error):
             print("Scanning failed: \(error.localizedDescription)")
         }

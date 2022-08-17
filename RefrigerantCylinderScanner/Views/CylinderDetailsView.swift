@@ -43,16 +43,22 @@ struct CylinderDetailsView: View {
                     }
                 }
                 .padding(12)
-                Form {
-                    Section(header: Text("Last scanned")) {
-                        Text("\(cylinder.date)")
-                            .textContentType(.dateTime)
-                            .font(.title2)
+            Form {
+                Section(header: Text("Last scanned")) {
+                    Text("\(cylinder.lastScanned)")
+                        .textContentType(.dateTime)
+                        .font(.title2)
+                }
+                Section(header: Text("Scan history")) {
+                    List {
+                        
                     }
+                }
             }
             .navigationTitle("\(cylinder.name) details")
             .toolbar {
-                NavigationLink(destination: CylinderEditView(cylinder: cylinder)) {
+                NavigationLink(destination: CylinderEditView(cylinder: cylinder)
+                    .environmentObject(dataManager)) {
                     Text("Edit")
                 }
                 

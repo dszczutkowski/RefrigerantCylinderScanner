@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CylinderEditView: View {
+    @EnvironmentObject var dataManager: DataManager
     var cylinder: Cylinder
     
     private var capacityArray = [10.0, 11.7, 25.0]
@@ -50,18 +51,16 @@ struct CylinderEditView: View {
                     })
             }
             
-            Section(header: Text("Last scanned")) {
-                Text("\(cylinder.date)")
-            }
-            Section(header: Text("Scan History")) {
-                
-            }
+//            Section(header: Text("Last scanned")) {
+//                Text("\(cylinder.lastScanned)")
+//            }
         }
         .navigationTitle("\(cylinder.name)")
         .toolbar {
             ToolbarItem(placement: .confirmationAction) {
                 Button("Save") {
-                    
+                    dataManager.add(cylinder)
+                    dataManager.saveScanHistory(data: self.cylinder, contentTaken: self.contentTaken)
                 }
             }
         }

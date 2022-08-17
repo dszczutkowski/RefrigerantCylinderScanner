@@ -13,8 +13,10 @@ class DataManager: ObservableObject {
     @Published var cylinders: [Cylinder] = []
     let saveKey = "Cylinders"
     let db = Firestore.firestore()
+    var tmpCylinder: Cylinder
     
     init () {
+        tmpCylinder = Cylinder(id: 0102030405)
         fetchCylinders()
     }
     
@@ -31,12 +33,11 @@ class DataManager: ObservableObject {
                 for document in snapshot.documents {
                     let data = document.data()
                     
-                    let id = data["id"] as? String ?? ""
-                    let date = data["date"] as? Date ?? Date.now
+                    let id = data["name"] as? String ?? ""
                     let maxCap = data["maxCapacity"] as? Double ?? 0
                     let cntRem = data["contentRemaining"] as? Double ?? 0
                     
-                    let cylinder = Cylinder(id: UInt(id) ?? 010101, date: date, maxCapacity: maxCap, contentRemaining: cntRem)
+                    let cylinder = Cylinder(id: UInt(id) ?? 010101, maxCapacity: maxCap, contentRemaining: cntRem)
                     self.cylinders.append(cylinder)
                 }
             }
@@ -49,26 +50,29 @@ class DataManager: ObservableObject {
         }
     }
     
+    func saveTmpCylinder(cylinder: Cylinder) {
+        tmpCylinder = cylinder
+    }
+    
     func add(_ cylinder: Cylinder) {
         if(cylinders.contains(where: { $0.name == cylinder.name })) {
             cylinders.removeAll(where: { $0.name == cylinder.name })
         }
         cylinders.append(cylinder)
         save()
-        writeToDb(data: Cylinder(id: cylinder.id, maxCapacity: cylinder.maxCapacity, contentRemaining: cylinder.contentRemaining))
+        writeCylinderToDb(data: Cylinder(id: cylinder.id, maxCapacity: cylinder.maxCapacity, contentRemaining: cylinder.contentRemaining))
     }
     
-    func writeToDb(data: Cylinder) {
+    func writeCylinderToDb(data: Cylinder) {
         let ref = db.collection("Cylinders")
         let dataTable = [
         "id" : "\(data.id)",
-        "date" : data.date,
         "name" : data.name,
         "maxCapacity" : data.maxCapacity,
         "contentRemaining" : data.contentRemaining
         ] as [String : Any]
         
-        ref.document("\(data.name)").setData(dataTable)
+        ref.document("\(data.id)").setData(dataTable)
         { err in
             if let err = err {
                 print("Error writing document: \(err)")
@@ -76,8 +80,11 @@ class DataManager: ObservableObject {
                 print("Document successfully written!")
             }
         }
-        
-        let history = History(contentTaken: data.contentTaken!, localisation: getLocalisation())
+    }
+    
+    func saveScanHistory(data: Cylinder, contentTaken: Double) {
+        let ref = db.collection("Cylinders")
+        let history = History(contentTaken: contentTaken, localisation: getLocalisation())
         ref.document("\(data.name)").collection("ScanHistory").addDocument(data: [
             "date" : history.date,
             "localisation" : history.localisation,
