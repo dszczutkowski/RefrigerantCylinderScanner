@@ -17,16 +17,25 @@ struct CylinderDetailsView: View {
     var body: some View {
             VStack {
                 HStack(alignment: .top, spacing: 10) {
-                    VStack {
-                        Text("Last scanned")
-                            .foregroundColor(.gray)
-                            .textCase(.uppercase)
-                            .padding(8)
-                            .font(.caption)
-                        Text("\(cylinder.lastScanned.formatted(date: .long, time: .standard))")
-                            .textContentType(.dateTime)
-                            .font(.title2)
+                    Form {
+//                        Text("Last scanned")
+//                            .foregroundColor(.gray)
+//                            .textCase(.uppercase)
+//                            .padding(8)
+//                            .font(.caption)
+                        Section(header: Text("Last Scanned")) {
+                            List {
+                                Text("\(cylinder.lastScanned.formatted(date: .long, time: .standard))")
+                                    .textContentType(.dateTime)
+                                    .font(.title2)
+                                Text("by Kuba G.")
+                                Text("X litres taken")
+                                    .font(.title3)
+                            }
+                            .listRowBackground(Color.clear)
+                        }
                     }
+                    .scrollEnabled(false)
                     VStack {
                         Text("Capacity")
                             .foregroundColor(.gray)
@@ -74,6 +83,17 @@ struct CylinderDetailsView: View {
             }
         }
     }
+}
+
+extension View {
+  @ViewBuilder func scrollEnabled(_ enabled: Bool) -> some View {
+    if enabled {
+      self
+    } else {
+      simultaneousGesture(DragGesture(minimumDistance: 0),
+                          including: .all)
+    }
+  }
 }
 
 struct CylinderDetailsView_Previews: PreviewProvider {
