@@ -13,20 +13,26 @@ struct CylinderDetailsView: View {
     @State private var contentRemaining: NumbersOnly = NumbersOnly()
     
     var cylinder: Cylinder
-    private let qrGenerator = QrGenerator()
     
     var body: some View {
             VStack {
-                HStack {
-                    Section(header: Text("Capacity")) {
-                        VStack {
-                            TextField("\(NSString(format: "%.2f", cylinder.contentRemaining )) litres left", text: $contentRemaining.value)
-                                .keyboardType(.decimalPad)
-                            Text("out of \(Int(cylinder.maxCapacity)) litres")
-                        }
-                    }
-                    
+                HStack(alignment: .top, spacing: 10) {
                     VStack {
+                        Text("Last scanned")
+                            .foregroundColor(.gray)
+                            .textCase(.uppercase)
+                            .padding(8)
+                            .font(.caption)
+                        Text("\(cylinder.lastScanned.formatted(date: .long, time: .standard))")
+                            .textContentType(.dateTime)
+                            .font(.title2)
+                    }
+                    VStack {
+                        Text("Capacity")
+                            .foregroundColor(.gray)
+                            .textCase(.uppercase)
+                            .padding(8)
+                            .font(.caption)
                         Rectangle()
                             .frame(width: 48, height: 12, alignment: .top)
                             .cornerRadius(10)
@@ -40,15 +46,19 @@ struct CylinderDetailsView: View {
                                     .foregroundColor(.black)
                             }
                             .cornerRadius(15)
+                        
+                        Text("\(NSString(format: "%.2f", cylinder.contentRemaining ))L left")
+                            .font(.title)
+                        Text("out of \(Int(cylinder.maxCapacity)) litres")
+                            .font(.title3)
+                        
                     }
+                    
+                }
+                VStack {
                 }
                 .padding(12)
             Form {
-                Section(header: Text("Last scanned")) {
-                    Text("\(cylinder.lastScanned)")
-                        .textContentType(.dateTime)
-                        .font(.title2)
-                }
                 Section(header: Text("Scan history")) {
                     List {
                         
@@ -61,7 +71,6 @@ struct CylinderDetailsView: View {
                     .environmentObject(dataManager)) {
                     Text("Edit")
                 }
-                
             }
         }
     }
@@ -70,9 +79,10 @@ struct CylinderDetailsView: View {
 struct CylinderDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
-            CylinderDetailsView(cylinder: Cylinder.sampleData[5])
+            CylinderDetailsView(cylinder: Cylinder.sampleData[0])
         }
         .preferredColorScheme(.dark)
         .padding()
+        .environmentObject(DataManager.init())
     }
 }

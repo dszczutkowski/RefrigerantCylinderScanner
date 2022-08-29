@@ -57,7 +57,7 @@ extension Cylinder {
 extension Cylinder {
     static let sampleData: [Cylinder] =
     [
-        Cylinder(id: 12341, maxCapacity: 12, contentRemaining: 8.23),
+        Cylinder(id: 12341, maxCapacity: 10, contentRemaining: 8.23),
         Cylinder(id: 12345231, maxCapacity: 100, contentRemaining: 8.23),
         Cylinder(id: 555535, maxCapacity: 6, contentRemaining: 2),
         Cylinder(id: 951235124, maxCapacity: 12, contentRemaining: 24),

@@ -59,8 +59,11 @@ struct CylinderEditView: View {
         .toolbar {
             ToolbarItem(placement: .confirmationAction) {
                 Button("Save") {
+                    let roundContentTaken = Double(round(100*contentTaken)/100)
                     dataManager.add(cylinder)
-                    dataManager.saveScanHistory(data: self.cylinder, contentTaken: self.contentTaken)
+                    dataManager.saveScanHistory(data: cylinder, contentTaken: roundContentTaken)
+                    dataManager.updateCapacity(documentName: cylinder.name, capacity: cylinder.contentRemaining-roundContentTaken)
+                    dataManager.fetchCylinders()
                 }
             }
         }

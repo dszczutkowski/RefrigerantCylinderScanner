@@ -19,14 +19,14 @@ struct CylinderListView: View {
         List {
             ForEach(dataManager.cylinders) { cylinder in
                 NavigationLink(destination: CylinderDetailsView(cylinder: cylinder)
-                    .environmentObject(dataManager)) {
+                    .environmentObject(dataManager), tag: "\(cylinder.id)", selection: $selection) {
                     CylinderView(cylinder: cylinder)
                 }
                 .listRowBackground(Color.gray)
             }
-            NavigationLink("EditView", destination: CylinderEditView(cylinder: dataManager.tmpCylinder).environmentObject(dataManager), tag: "old", selection: $selection)
-                .hidden()
-                .listRowBackground(Color(white: 0, opacity: 100))
+//            NavigationLink("EditView", destination: CylinderEditView(cylinder: dataManager.tmpCylinder).environmentObject(dataManager), tag: "old", selection: $selection)
+//                .hidden()
+//                .listRowBackground(Color(white: 0, opacity: 100))
         }
         .navigationTitle("Cylinder list")
         .foregroundColor(Color.black)
@@ -49,8 +49,7 @@ struct CylinderListView: View {
             let details = result.string
             let cylinder = Cylinder(id: UInt(details)!)
             dataManager.saveTmpCylinder(cylinder: cylinder)
-            selection = "old"
-            //dataManager.add(cylinder)
+            selection = details
         case .failure(let error):
             print("Scanning failed: \(error.localizedDescription)")
         }
