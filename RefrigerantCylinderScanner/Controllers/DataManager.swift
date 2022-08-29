@@ -21,7 +21,6 @@ class DataManager: ObservableObject {
     }
     
     func fetchCylinders() {
-        cylinders.removeAll()
         let ref = db.collection("Cylinders")
         ref.getDocuments { snapshot, error in
             guard error == nil else {
@@ -30,6 +29,7 @@ class DataManager: ObservableObject {
             }
             
             if let snapshot = snapshot {
+                self.cylinders.removeAll()
                 for document in snapshot.documents {
                     let data = document.data()
                     
@@ -38,17 +38,18 @@ class DataManager: ObservableObject {
                     let cntRem = data["contentRemaining"] as? Double ?? 0
                     
                     let cylinder = Cylinder(id: UInt(id) ?? 010101, maxCapacity: maxCap, contentRemaining: cntRem)
+                    
                     self.cylinders.append(cylinder)
                 }
             }
         }
     }
     
-    private func save() {
-        if let encoded = try? JSONEncoder().encode(cylinders) {
-            UserDefaults.standard.set(encoded, forKey: saveKey)
-        }
-    }
+//    private func save() {
+//        if let encoded = try? JSONEncoder().encode(cylinders) {
+//            UserDefaults.standard.set(encoded, forKey: saveKey)
+//        }
+//    }
     
     func saveTmpCylinder(cylinder: Cylinder) {
         tmpCylinder = cylinder
@@ -59,7 +60,7 @@ class DataManager: ObservableObject {
             cylinders.removeAll(where: { $0.name == cylinder.name })
         }
         cylinders.append(cylinder)
-        save()
+//        save()
         writeCylinderToDb(data: Cylinder(id: cylinder.id, maxCapacity: cylinder.maxCapacity, contentRemaining: cylinder.contentRemaining))
     }
     

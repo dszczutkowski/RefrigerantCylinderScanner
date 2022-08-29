@@ -30,6 +30,9 @@ struct CylinderListView: View {
         }
         .navigationTitle("Cylinder list")
         .foregroundColor(Color.black)
+        .refreshable {
+            dataManager.fetchCylinders()
+        }
         .toolbar {
             Button {
                 isShowingScanner = true

@@ -8,7 +8,7 @@
 import Foundation
 import CoreLocation
 
-struct Cylinder: Identifiable, Encodable {
+struct Cylinder: Identifiable {
     let id: UInt
     let name: String
     let lastScanned: Date
