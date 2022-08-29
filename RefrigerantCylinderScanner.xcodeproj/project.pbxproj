@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D032B736289AF67700C38ED2 /* QrGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D032B735289AF67700C38ED2 /* QrGenerator.swift */; };
 		D05A428C2875F5F2008046E5 /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = D05A428B2875F5F2008046E5 /* CodeScanner */; };
+		D0845B0628BD6EFD0056301E /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0845B0528BD6EFD0056301E /* ScanView.swift */; };
 		D08EDAAC2885B02A00F16E73 /* LoginPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08EDAAB2885B02A00F16E73 /* LoginPageView.swift */; };
 		D08EDAB42885BDFA00F16E73 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D08EDAB32885BDFA00F16E73 /* FirebaseAuth */; };
 		D08EDAB62885BDFA00F16E73 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D08EDAB52885BDFA00F16E73 /* FirebaseFirestore */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		D032B735289AF67700C38ED2 /* QrGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QrGenerator.swift; sourceTree = "<group>"; };
+		D0845B0528BD6EFD0056301E /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
 		D08EDAAB2885B02A00F16E73 /* LoginPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageView.swift; sourceTree = "<group>"; };
 		D08EDAB72885C19600F16E73 /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		D08EDAB92885C87D00F16E73 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "RefrigerantCylinderScanner/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				D097F0C52874D5DF001A0D58 /* CylinderDetailsView.swift */,
 				D0947F8028775A3700080F32 /* CylinderListView.swift */,
 				D0947F8228775DED00080F32 /* CylinderView.swift */,
+				D0845B0528BD6EFD0056301E /* ScanView.swift */,
 				D08EDAAB2885B02A00F16E73 /* LoginPageView.swift */,
 				D08EDABD28889F9700F16E73 /* CoolantPickerView.swift */,
 				D09DC728289E8476000A18A0 /* CylinderEditView.swift */,
@@ -245,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0947F8328775DED00080F32 /* CylinderView.swift in Sources */,
+				D0845B0628BD6EFD0056301E /* ScanView.swift in Sources */,
 				D032B736289AF67700C38ED2 /* QrGenerator.swift in Sources */,
 				D08EDABC2885D00400F16E73 /* DataManager.swift in Sources */,
 				D09B19A82899C5C80083AC7E /* LocationManager.swift in Sources */,

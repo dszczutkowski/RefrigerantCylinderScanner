@@ -13,10 +13,10 @@ struct History: Identifiable {
     let contentTaken: Double
     var localisation: String
     
-    init(contentTaken: Double, localisation: String)
+    init(contentTaken: Double, date: Date, localisation: String)
     {
         self.id = UUID()
-        self.date = Date.now
+        self.date = date
         self.contentTaken = contentTaken
         self.localisation = localisation
     }

@@ -70,7 +70,12 @@ struct CylinderDetailsView: View {
             Form {
                 Section(header: Text("Scan history")) {
                     List {
-                        
+                        ForEach(dataManager.getScanHistory(documentId: cylinder.name)) { scan in
+                            NavigationLink(destination: EmptyView()) {
+                                ScanView(scan: scan)
+                            }
+                            .listRowBackground(Color.gray)
+                        }
                     }
                 }
             }

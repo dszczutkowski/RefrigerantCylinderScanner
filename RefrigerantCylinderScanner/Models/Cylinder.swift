@@ -12,9 +12,10 @@ struct Cylinder: Identifiable {
     let id: UInt
     let name: String
     let lastScanned: Date
-    //let location: CLLocationCoordinate2D
+//    let location: CLLocationCoordinate2D
     let maxCapacity: Double
     var contentRemaining: Double
+//    var scanHistory: [History]
     
     init(id: UInt, date: Date = Date(timeIntervalSinceNow: 0), maxCapacity: Double = 10.0, contentRemaining: Double = 0) {
         self.id = id
@@ -22,6 +23,7 @@ struct Cylinder: Identifiable {
         self.lastScanned = date
         self.maxCapacity = maxCapacity != 0 ? maxCapacity : 10.0
         self.contentRemaining = contentRemaining > maxCapacity ? maxCapacity : contentRemaining
+//        self.scanHistory = scanHistory
         
 //        let locationHelper = LocationHelper()
 //        locationHelper.requestLocation()
@@ -45,13 +47,13 @@ extension Cylinder {
         Data(name: name, maxCapacity: maxCapacity, contentRemaining: contentRemaining)
     }
     
-    init(data: Data) {
-        id = UInt()
-        name = data.name
-        lastScanned = Date.init(timeIntervalSinceNow: 0)
-        maxCapacity = data.maxCapacity
-        contentRemaining = data.contentRemaining > data.maxCapacity ? data.maxCapacity : data.contentRemaining
-    }
+//    init(data: Data) {
+//        id = UInt()
+//        name = data.name
+//        lastScanned = Date.init(timeIntervalSinceNow: 0)
+//        maxCapacity = data.maxCapacity
+//        contentRemaining = data.contentRemaining > data.maxCapacity ? data.maxCapacity : data.contentRemaining
+//    }
 }
 
 extension Cylinder {

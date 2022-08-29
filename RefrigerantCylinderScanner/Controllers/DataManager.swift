@@ -38,12 +38,12 @@ class DataManager: ObservableObject {
                     let cntRem = data["contentRemaining"] as? Double ?? 0
                     
                     let cylinder = Cylinder(id: UInt(id) ?? 010101, maxCapacity: maxCap, contentRemaining: cntRem)
-                    
                     self.cylinders.append(cylinder)
                 }
             }
         }
     }
+
     
 //    private func save() {
 //        if let encoded = try? JSONEncoder().encode(cylinders) {
@@ -60,7 +60,6 @@ class DataManager: ObservableObject {
             cylinders.removeAll(where: { $0.name == cylinder.name })
         }
         cylinders.append(cylinder)
-//        save()
         writeCylinderToDb(data: Cylinder(id: cylinder.id, maxCapacity: cylinder.maxCapacity, contentRemaining: cylinder.contentRemaining))
     }
     
@@ -85,12 +84,36 @@ class DataManager: ObservableObject {
     
     func saveScanHistory(data: Cylinder, contentTaken: Double) {
         let ref = db.collection("Cylinders")
-        let history = History(contentTaken: contentTaken, localisation: getLocalisation())
+        let history = History(contentTaken: contentTaken, date: Date.now, localisation: getLocalisation())
         ref.document("\(data.name)").collection("ScanHistory").addDocument(data: [
             "date" : history.date,
             "localisation" : history.localisation,
             "contentTaken" : history.contentTaken
         ])
+    }
+    
+    func getScanHistory(documentId: String) -> [History]{
+        var scans: [History] = []
+        let ref = db.collection("Cylinders")
+        
+        ref.document("\(documentId)").collection("ScanHistory").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    let data = document.data()
+                    
+                    let contentTaken = data["contentTaken"] as? Double ?? 0
+                    let date = data["date"] as? Date ?? Date(timeIntervalSince1970: 0)
+                    let localisation = data["localisation"] as? String ?? "Unknown"
+                    
+                    let history = History(contentTaken: contentTaken, date: date, localisation: localisation)
+                    scans.append(history)
+                }
+            }
+        }
+        
+        return scans
     }
     
     func updateCapacity(documentName: String, capacity: Double) {
