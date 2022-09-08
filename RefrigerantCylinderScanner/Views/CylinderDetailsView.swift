@@ -81,7 +81,7 @@ struct CylinderDetailsView: View {
             }
             .navigationTitle("\(cylinder.name) details")
             .toolbar {
-                NavigationLink(destination: CylinderEditView(cylinder: cylinder)
+                NavigationLink(destination: ContentPicker(cylinder: cylinder)
                     .environmentObject(dataManager)) {
                     Text("Edit")
                 }

@@ -32,6 +32,7 @@
 		D09B19A62899B71A0083AC7E /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09B19A52899B71A0083AC7E /* History.swift */; };
 		D09B19A82899C5C80083AC7E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09B19A72899C5C80083AC7E /* LocationManager.swift */; };
 		D09DC729289E8477000A18A0 /* CylinderEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D09DC728289E8476000A18A0 /* CylinderEditView.swift */; };
+		D0BFD5F128CA81330024CAA2 /* ContentPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0BFD5F028CA81330024CAA2 /* ContentPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		D09B19A52899B71A0083AC7E /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		D09B19A72899C5C80083AC7E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		D09DC728289E8476000A18A0 /* CylinderEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CylinderEditView.swift; sourceTree = "<group>"; };
+		D0BFD5F028CA81330024CAA2 /* ContentPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +157,7 @@
 				D08EDAAB2885B02A00F16E73 /* LoginPageView.swift */,
 				D08EDABD28889F9700F16E73 /* CoolantPickerView.swift */,
 				D09DC728289E8476000A18A0 /* CylinderEditView.swift */,
+				D0BFD5F028CA81330024CAA2 /* ContentPicker.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -258,6 +261,7 @@
 				D097F0BE28749FDA001A0D58 /* User.swift in Sources */,
 				D08EDAB82885C19600F16E73 /* Credentials.swift in Sources */,
 				D097F0C02874A037001A0D58 /* Cylinder.swift in Sources */,
+				D0BFD5F128CA81330024CAA2 /* ContentPicker.swift in Sources */,
 				D097F0C32874A3A8001A0D58 /* LocationHelper.swift in Sources */,
 				D0947F8128775A3700080F32 /* CylinderListView.swift in Sources */,
 				D09DC729289E8477000A18A0 /* CylinderEditView.swift in Sources */,
