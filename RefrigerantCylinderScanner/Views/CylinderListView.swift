@@ -24,9 +24,8 @@ struct CylinderListView: View {
                 }
                 .listRowBackground(Color.gray)
             }
-//            NavigationLink("EditView", destination: CylinderEditView(cylinder: dataManager.tmpCylinder).environmentObject(dataManager), tag: "old", selection: $selection)
-//                .hidden()
-//                .listRowBackground(Color(white: 0, opacity: 100))
+            NavigationLink("EditView", destination: CylinderEditView(cylinder: dataManager.tmpCylinder).environmentObject(dataManager), tag: "new", selection: $selection)
+                .hidden()
         }
         .navigationTitle("Cylinder list")
         .foregroundColor(Color.black)
@@ -52,9 +51,19 @@ struct CylinderListView: View {
             let details = result.string
             let cylinder = Cylinder(id: UInt(details)!)
             dataManager.saveTmpCylinder(cylinder: cylinder)
-            selection = details
+            //selection = details
+            selection = checkThatElementExists(searchFor: details)
         case .failure(let error):
             print("Scanning failed: \(error.localizedDescription)")
+        }
+    }
+    
+    func checkThatElementExists(searchFor: String) -> String {
+        let result = dataManager.cylinders.filter { $0.name == searchFor }
+        if(!result.isEmpty) {
+            return searchFor
+        } else {
+            return "new"
         }
     }
 }

@@ -15,6 +15,7 @@ struct CylinderEditView: View {
     @State private var selectedCapacity = 0
     @State private var contentTaken = 0.0
     @State private var contentRemaining = 10.0
+    @State private var localisation = "Unknown"
     
     init(cylinder: Cylinder) {
         self.cylinder = cylinder
@@ -23,7 +24,7 @@ struct CylinderEditView: View {
     var body: some View {
         Form {
             Section(header: Text("Localisation")) {
-                Text("Zabka sklep")
+                TextField("Your localisation", text: $localisation)
             }
             
             Section(header: Text("Capacity")) {
@@ -60,9 +61,10 @@ struct CylinderEditView: View {
             ToolbarItem(placement: .confirmationAction) {
                 Button("Save") {
                     let roundContentTaken = Double(round(100*contentTaken)/100)
-                    dataManager.add(cylinder)
-                    dataManager.saveScanHistory(data: cylinder, contentTaken: roundContentTaken)
-                    dataManager.updateCapacity(documentName: cylinder.name, capacity: cylinder.contentRemaining-roundContentTaken)
+                    let newCylinder = Cylinder(id: cylinder.id, maxCapacity: capacityArray[selectedCapacity], contentRemaining: contentRemaining)
+                    dataManager.add(newCylinder)
+                    dataManager.saveScanHistory(data: newCylinder, contentTaken: roundContentTaken)
+                    dataManager.updateCapacity(documentName: newCylinder.name, capacity: newCylinder.contentRemaining)
                     dataManager.fetchCylinders()
                 }
             }
